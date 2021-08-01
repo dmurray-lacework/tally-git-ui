@@ -1,0 +1,80 @@
+.project-icon{
+    // line-height: 85%;
+    margin-right: 5px;
+    max-width: 37px;
+    max-height: 37px;
+    min-width: 37px;
+    min-height: 37px;
+}
+
+.project-name{
+    padding-left: 5px;
+    line-height: 250%;
+    color: black;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blip-container {
+  justify-content: space-evenly;
+}
+
+.blip{
+  margin-right: 15px;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.spacking {
+    padding:20px;
+    max-width:30%;
+}
+
+.project-title-container{
+  max-width: 25px;
+  min-width: 25px;
+}
+
+.project-icon-container{
+  max-width: 25px;
+  min-width: 25px;
+}
+
+.issue-icon{
+    transition: transform .2s; /* Animation */
+}
+
+.issue-icon:hover{
+    opacity: 70%;
+    transform: scale(1.1);
+}
+
+.project-item{
+  margin-top: 5px;
+}
+
+.mat-link {
+  color: #959697;
+}
+
+.project-description {
+  text-overflow : ellipsis;
+  overflow: hidden;
+  max-width: 80%;
+}
+
+
+.mat-accordion > .mat-expansion-panel-spacing:first-child{
+  margin-top: 5px;
+
+}

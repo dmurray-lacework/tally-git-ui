@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .large-cell {
+    max-width: 30;
+  }
+
+  .label-bug {
+    background-color: var(--high-warn);
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .label-feat {
+    background-color: #5ebe5b;
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .label-cli {
+    background-color: #5b7abe;
+    color: rgba(255, 255, 255, 0.87);
+  }

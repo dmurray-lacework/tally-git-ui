@@ -1,0 +1,167 @@
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$mat-techally-primary: (
+    50 : #3f3e55,
+    100 : #3f3e55,
+    200 : #3f3e55,
+    300 : #3f3e55,
+    400 : #3f3e55,
+    500 : #3f3e55,
+    600 : #3f3e55,
+    700 : #3f3e55,
+    800 : #3f3e55,
+    900 : #3f3e55,
+    A100 : #ffffff,
+    A200 : #3f3e55,
+    A400 : #3f3e55,
+    A700 : #3f3e55,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$mat-techally-accent: (
+    50 : #fffaed,
+    100 : #fff4d1,
+    200 : #d6d9f2,
+    300 : #d6d9f2,
+    400 : #d6d9f2,
+    500 : #d6d9f2,
+    600 : #d6d9f2,
+    700 : #d6d9f2,
+    800 : #d6d9f2,
+    900 : #d6d9f2,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff5e1,
+    A700 : #ffedc8,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-techally-warn: (
+    50 : #e57373,
+    100 : #e57373,
+    200 : #e57373,
+    300 : #e57373,
+    400 : #e57373,
+    500 : #e57373,
+    600 : #e57373,
+    700 : #e57373,
+    800 : #e57373,
+    900 : #e57373,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff5e1,
+    A700 : #ffedc8,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$primary: mat-palette($mat-techally-primary);
+$accent: mat-palette($mat-techally-accent);
+$warn: mat-palette($mat-techally-warn);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: #d6d9f2;
+  }
+
+  :root {
+    --critical-warn:#d32f2f;
+    --high-warn:#e57373;
+    --med-warn:#f57c00;
+    --low-warn:#ffb74d;
+}
+
+.main-content{
+  margin: 0;
+  padding: 100px;
+}
+
+.github-link {
+  width: 100% !important;
+  text-align: right !important;
+}
+.source-link {
+  color:#3f3e55
+}
+
+.source-link:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.mat-link {
+  color: cornsilk;
+}
+
+.invert-img-colour {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+.mat-card{
+  background: #3f3e55;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.mat-tab-label {
+  color: #d6d9f2;
+}
+
+.mat-card-subtitle{
+color: rgba(255, 255, 255, 0.54);
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}

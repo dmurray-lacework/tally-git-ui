@@ -19,14 +19,14 @@ jobs:
     - name: Build Info
       run: ls -la
     - name: Install Dependencies
-      working-directory: tech-ally-ui/tech-ally/
+      working-directory: tech-ally/
       run: npm install
     - name: Build Production
-      working-directory: tech-ally-ui/tech-ally/
+      working-directory: tech-ally/
       run: npm run build -- --prod
     - name: Install Firebase tools
-      working-directory: tech-ally-ui/tech-ally/
+      working-directory: tech-ally/
       run: npm i -g firebase-tools
     - name: Deploy to Firebase
-      working-directory: tech-ally-ui/tech-ally/
+      working-directory: tech-ally/
       run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --project ${{ secrets.PROJECT_ID}}

@@ -1,0 +1,33 @@
+.section{
+    padding: 10px;
+}
+
+.nav {
+    // position: fixed;
+    background-color: #3f3e55;
+    color: #fff;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+}
+
+.nav-jira {
+    padding-right: 10px;
+}
+
+.nav-link {
+    vertical-align: middle;
+    padding-right: 15px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+.nav-spacer {
+    flex: 1 1 auto;
+}
+
+.nav-icon {
+    max-width: 25px;
+    max-height: 25px;
+}

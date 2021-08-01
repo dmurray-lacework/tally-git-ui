@@ -1,0 +1,64 @@
+<app-loading></app-loading>
+
+  <div *ngFor="let project of projectList">
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel (opened)="panelOpenState = true" 
+        (closed)="panelOpenState = false"
+        hideToggle class="project-item">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="spacking">
+              <div class="<project-icon-container>">
+                <img src="{{project.iconLink}}" class="project-icon">
+              </div>
+              <div class="<project-title-container>">
+                <span class="project-name">{{project.name}}</span>
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <span *ngIf="!project.description">Empty Description</span>
+              <span class="project-description">{{project.description}}</span>
+              <div class="blip-container">
+                <mat-icon matBadge="{{project.pullRequests}}" matBadgeSize="small" class="issue-icon blip">change_circle</mat-icon>
+                <mat-icon matBadge="{{project.issues}}" matBadgeColor="warn" matBadgeSize="small" class="issue-icon blip">bug_report</mat-icon>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>More details go here!</p>
+          <mat-action-row>
+            <button mat-button color="link">Github
+                <mat-icon>open_in_browser</mat-icon>
+            </button>              
+          </mat-action-row>
+        </mat-expansion-panel>      
+      </mat-accordion>
+  </div>
+
+      <!-- <mat-accordion class="example-headers-align project-item">
+        <mat-expansion-panel (opened)="panelOpenState = true" 
+        (closed)="panelOpenState = false"
+        hideToggle class="project-item">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="spacking">
+              <div class="<project-icon-container>">
+                <img src="../../../assets/images/tf-logo.png" class="project-icon">
+              </div>
+              <div class="<project-title-container>">
+                <span class="project-name">Lacework-terraform-provider</span>
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              This is the lacework-terraform-provider project
+              <div class="blip-container">
+                <mat-icon matBadge="1" matBadgeSize="small" class="issue-icon blip">change_circle</mat-icon>
+                <mat-icon matBadge="6" matBadgeColor="warn" matBadgeSize="small" class="issue-icon blip">bug_report</mat-icon>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>More details go here!</p>
+          <mat-action-row>
+            <button mat-button color="link">Github
+                <mat-icon>open_in_browser</mat-icon>
+            </button>              
+          </mat-action-row>
+        </mat-expansion-panel>      
+      </mat-accordion> -->

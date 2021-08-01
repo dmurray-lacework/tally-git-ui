@@ -1,0 +1,49 @@
+<mat-toolbar class="nav">
+  <span>TechAlly</span>
+
+  <span class="nav-spacer"></span>
+  <a href="https://lacework.atlassian.net/jira/software/projects/ALLY/boards/58#" target="_blank" rel="noopener noreferrer">
+    <span class="nav-link nav-jira">
+      <img src="../assets/images/atlassian_black_logo_icon_147163.png" class="invert-img-colour nav-icon">Jira 
+    </span>
+  </a>
+
+  <a href="https://github.com/lacework" target="_blank" rel="noopener noreferrer">
+    <span class="nav-link">
+      <img src="../assets/images/GitHub-Mark-Light-32px.png" class="nav-icon">GitHub 
+    </span>
+  </a>
+</mat-toolbar>
+
+<div class="main-content">
+  <div class="section">
+    <mat-card>
+      <mat-card-title>New Issues</mat-card-title>
+      <mat-card-subtitle>{{issueCount}} Issues</mat-card-subtitle>
+        <app-issues-card>Loading</app-issues-card>
+    </mat-card>
+  </div>
+
+
+  <div class="section">
+    <mat-card>
+    <mat-tab-group color="accent">
+      <mat-tab label="Projects" class="tab-label"> 
+          <!-- <mat-card-title>Open Source Projects</mat-card-title>
+          <mat-card-subtitle>2 Projects</mat-card-subtitle> -->
+            <app-projects>
+            </app-projects>
+      </mat-tab>
+      <mat-tab label="Issues">
+        <app-issues-list></app-issues-list>
+      </mat-tab>
+      <mat-tab label="Pull Requests">
+        <app-pull-requests-list></app-pull-requests-list>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+
+
+
+  </div>
+</div>

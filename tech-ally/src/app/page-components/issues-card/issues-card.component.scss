@@ -1,0 +1,34 @@
+.issue{
+    margin: 10px;
+    max-width: 200px;
+    min-width: 200px;
+}
+.critical-issue{
+    background-color: var(--critical-warn);
+    border: 2px solid var(--critical-warn);
+}
+.high-issue{
+    background-color: var(--high-warn);
+    border: 2px solid var(--high-warn);
+}
+.med-issue{
+    background-color: var(--med-warn);
+    border: 2px solid var(--med-warn);
+}
+.low-issue{
+    background-color: var(--low-warn);
+    border: 2px solid var(--low-warn);
+}
+
+.card-title{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.horiz-scroll-container{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    cursor: default;
+}

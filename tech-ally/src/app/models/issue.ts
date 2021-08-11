@@ -37,6 +37,10 @@ export class Issue {
 
     static fromDtoList(issueDtoList: IssueDto[]): Issue[] {
         let IssueList: Issue[] = []
+        if (issueDtoList === undefined || issueDtoList == null || issueDtoList.length == 0) {
+            console.log("No issues found")
+            return IssueList;
+        }
         for (let dto of issueDtoList) {
             IssueList.push(Issue.fromDto(dto))
         }

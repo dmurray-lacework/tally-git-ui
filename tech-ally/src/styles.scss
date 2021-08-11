@@ -100,13 +100,11 @@ $mat-techally-warn: (
     )
 );
 
-
 $primary: mat-palette($mat-techally-primary);
 $accent: mat-palette($mat-techally-accent);
 $warn: mat-palette($mat-techally-warn);
 $theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
-
 
 html, body { height: 100%; }
 body {
@@ -164,4 +162,29 @@ color: rgba(255, 255, 255, 0.54);
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.label-bug {
+  background-color: var(--high-warn) !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.label-feat {
+  background-color: #5ebe5b !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.label-cli {
+  background-color: #5b7abe !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.label-fix {
+  background-color: #be5b74 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.label-chore {
+  background-color: #dfdb18 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
 }

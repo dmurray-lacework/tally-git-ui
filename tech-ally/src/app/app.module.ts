@@ -13,6 +13,7 @@ import { LoaderService } from '@app/services/loader.service';
 import { LoaderInterceptor } from '@app/http-interceptor/load.interceptor';
 import { IssuesListComponent } from './page-components/issues-list/issues-list.component';
 import { PullRequestsListComponent } from './page-components/pull-requests-list/pull-requests-list.component';
+import { TimelineComponent } from './page-components/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PullRequestsListComponent } from './page-components/pull-requests-list/
     IssuesCardComponent,
     LoaderComponent,
     IssuesListComponent,
-    PullRequestsListComponent
+    PullRequestsListComponent,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,

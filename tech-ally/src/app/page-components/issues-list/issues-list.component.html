@@ -21,7 +21,9 @@
         <mat-chip-list #chipList aria-label="Labels" multiple>
           <mat-chip *ngFor="let gitlabel of element.labels" [ngClass]="{'label-bug': gitlabel == 'bug', 
           'label-feat': gitlabel == 'feat',
-          'label-cli': gitlabel == 'cli'}">
+          'label-cli': gitlabel == 'cli',
+          'label-fix': gitlabel.includes('fix'),
+          'label-chore': gitlabel.includes('chore')}">
             {{gitlabel}}
           </mat-chip>
         </mat-chip-list>

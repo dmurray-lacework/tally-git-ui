@@ -3,6 +3,8 @@ import { RepoDto } from '@app/dtos/repo.dto';
 import { Repo } from '@app/models/repo';
 import { Project } from '@app/models/project';
 import { ProjectService } from '@app/services/project.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalStorageService } from '@app/services/local-storage.service';
 
 @Component({
   selector: 'app-projects',
@@ -14,7 +16,9 @@ export class ProjectsComponent implements OnInit {
   projectResponse!: Project;
   projectList: Repo[] = [];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, 
+    private localStorageService: LocalStorageService, 
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.fetchProjects();
@@ -22,8 +26,12 @@ export class ProjectsComponent implements OnInit {
 
   async fetchProjects() {
     this.projectResponse = await this.projectService.fetchProjects();
+  
     let projectDto: RepoDto[] = JSON.parse(this.projectResponse.Data)
     this.projectList = Repo.fromDtoList(projectDto)
+    if (this.projectList.length == 0) {
+      this.snackBar.open("Github Rate Limit exceeded!", "Error")
+    }
     this.setIconLink(this.projectList)
   }
 

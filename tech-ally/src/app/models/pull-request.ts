@@ -27,6 +27,10 @@ export class PullRequest {
 
     static fromDtoList(projectDtoList: PullRequestDto[]): PullRequest[] {
         let PullRequestList: PullRequest[] = []
+        if (projectDtoList === undefined || projectDtoList == null || projectDtoList.length == 0) {
+            console.log("No pull requests found")
+            return PullRequestList;
+        }
         for (let dto of projectDtoList) {
             PullRequestList.push(PullRequest.fromDto(dto))
         }

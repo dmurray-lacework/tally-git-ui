@@ -3,23 +3,39 @@ import { HttpClient } from '@angular/common/http';
 import { Project } from '@app/models/project';
 import { environment } from '@environments/environment';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   async fetchProjects(): Promise<Project> {
-    return await this.http.get<Project>(`${environment.tallyserver}/github.Repositories`).toPromise();
+    if (!this.localStorageService.isEmpty('repositories') && !this.localStorageService.isExpired()) {
+      return this.localStorageService.get('repositories')
+    }
+    let res = await this.http.get<Project>(`${environment.tallyserver}/github.Repositories`).toPromise();
+    this.localStorageService.set('repositories', res)
+    return res
   }
 
   async fetchAllIssues(): Promise<Project> {
-    return await this.http.get<Project>(`${environment.tallyserver}/github.Issues`).toPromise();
+    if (!this.localStorageService.isEmpty('issues') && !this.localStorageService.isExpired()) {
+      return this.localStorageService.get('issues')
+    }
+    let res = await this.http.get<Project>(`${environment.tallyserver}/github.Issues`).toPromise();
+    this.localStorageService.set('issues', res)
+    return res
   }
 
   async fetchAllPRs(): Promise<Project> {
-    return await this.http.get<Project>(`${environment.tallyserver}/github.PullRequests`).toPromise();
+    if (!this.localStorageService.isEmpty('pullRequests') && !this.localStorageService.isExpired()) {
+      return this.localStorageService.get('pullRequests')
+    }
+    let res = await this.http.get<Project>(`${environment.tallyserver}/github.PullRequests`).toPromise();
+    this.localStorageService.set('pullRequests', res)
+    return res
   }
 }

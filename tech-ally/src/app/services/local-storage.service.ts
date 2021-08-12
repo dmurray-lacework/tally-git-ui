@@ -13,7 +13,7 @@ export class LocalStorageService {
   get(key: string): any {
     if (this.isLocalStorageSupported) {
       let res: string = this.localStorage.getItem(key) ?? "";
-      return JSON.parse(res)
+      return JSON.parse(res);
     }
     return null;
   }
@@ -21,6 +21,7 @@ export class LocalStorageService {
   set(key: string, value: any): boolean {
     if (this.isLocalStorageSupported) {
       this.localStorage.setItem(key, JSON.stringify(value));
+      this.setExpiry();
       return true;
     }
     return false;
@@ -39,13 +40,30 @@ export class LocalStorageService {
   }
 
   get isLocalStorageSupported(): boolean {
-    return !!this.localStorage
+    return !!this.localStorage;
   }
 
   isEmpty(key: string): boolean {
     if (this.isLocalStorageSupported) {
-       return !this.localStorage.getItem(key)
+       return !this.localStorage.getItem(key);
     }
-    return false
+    return false;
+  }
+
+  isExpired() {
+   let expired = this.localStorage.getItem('expiry'); 
+   if (expired != null) {
+     return Date.parse(expired) < Date.now();
+   }
+   return true
+  }
+
+  setExpiry() {
+    const now = Date.now();
+    const expirationTime = now + 7200000;
+    
+    this.localStorage.setItem('expiry', expirationTime.toString());
   }
 }
+
+

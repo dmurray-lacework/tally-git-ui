@@ -13,7 +13,7 @@ export class ProjectService {
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   async fetchProjects(): Promise<Project> {
-    if (!this.localStorageService.isEmpty('repositories')) {
+    if (!this.localStorageService.isEmpty('repositories') && !this.localStorageService.isExpired()) {
       return this.localStorageService.get('repositories')
     }
     let res = await this.http.get<Project>(`${environment.tallyserver}/github.Repositories`).toPromise();
@@ -22,7 +22,7 @@ export class ProjectService {
   }
 
   async fetchAllIssues(): Promise<Project> {
-    if (!this.localStorageService.isEmpty('issues')) {
+    if (!this.localStorageService.isEmpty('issues') && !this.localStorageService.isExpired()) {
       return this.localStorageService.get('issues')
     }
     let res = await this.http.get<Project>(`${environment.tallyserver}/github.Issues`).toPromise();
@@ -31,7 +31,7 @@ export class ProjectService {
   }
 
   async fetchAllPRs(): Promise<Project> {
-    if (!this.localStorageService.isEmpty('pullRequests')) {
+    if (!this.localStorageService.isEmpty('pullRequests') && !this.localStorageService.isExpired()) {
       return this.localStorageService.get('pullRequests')
     }
     let res = await this.http.get<Project>(`${environment.tallyserver}/github.PullRequests`).toPromise();

@@ -53,7 +53,7 @@ export class LocalStorageService {
   isExpired() {
    let expired = this.localStorage.getItem('expiry'); 
    if (expired != null) {
-     return Date.parse(expired) < Date.now();
+     return Date.parse(expired) > Date.now();
    }
    return true
   }

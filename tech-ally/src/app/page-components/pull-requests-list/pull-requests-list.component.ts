@@ -22,7 +22,7 @@ export interface PullRequestElement {
   styleUrls: ['./pull-requests-list.component.scss']
 })
 export class PullRequestsListComponent implements AfterViewInit {
-  displayedColumns: string[] = ['created','repo','name', 'user', 'updated','url'];
+  displayedColumns: string[] = ['created','repo','name', 'user', 'status', 'updated','url'];
   projectResponse!: Project;
   prList: PullRequest[] = [];
   dataSource = new MatTableDataSource<PullRequest>();

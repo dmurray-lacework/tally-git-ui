@@ -1,4 +1,6 @@
-import { PullRequestDto } from "@app/dtos/pull-request.dto";
+import { _RecycleViewRepeaterStrategy } from "@angular/cdk/collections";
+import { PullRequestDto, ReviewDto } from "@app/dtos/pull-request.dto";
+import { Review } from "./review";
 
 export class PullRequest {
 
@@ -10,6 +12,7 @@ export class PullRequest {
     created: string;
     updated: string;
     url: string;
+    review!: Review;
 
     constructor(id: string, name: string, repo: string, url: string, created: string, updated: string, user: string) {
         this.id = id;
@@ -22,7 +25,10 @@ export class PullRequest {
     }
 
     static fromDto(pr: PullRequestDto): PullRequest {
-        return new PullRequest(pr.id, pr.title, pr.head.repo.name, pr.html_url, pr.created_at, pr.updated_at, pr.user.login)
+        let pull: PullRequest = new PullRequest(pr.id, pr.title, pr.head.repo.name, pr.html_url, pr.created_at, pr.updated_at, pr.user.login)
+        pull.review = determineReviewState(pr.reviews)
+        console.log(pull.review.status)
+        return pull
     }
 
     static fromDtoList(projectDtoList: PullRequestDto[]): PullRequest[] {
@@ -36,4 +42,24 @@ export class PullRequest {
         }
         return PullRequestList
       }
+}
+
+function determineReviewState(reviews: ReviewDto[]): Review{
+    let review: Review = new Review("UNREVIEWED", "NONE", "", "", 0)
+    let reviewCount = 0
+    if (reviews) {
+        reviewCount = reviews.length
+    for (let r of reviews) {
+      switch(r.state) { 
+        case "CHANGES_REQUESTED": { 
+            review = new Review("CHANGES_REQUESTED", r.user.login, r.submitted_at, r.state, reviewCount) 
+            continue; 
+        } 
+        case "APPROVED": { 
+            return new Review("APPROVED", r.user.login, r.submitted_at, r.state, reviewCount) 
+        } 
+     } 
+    }
+}
+    return review
 }

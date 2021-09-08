@@ -19,6 +19,25 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> User </th>
       <td mat-cell *matCellDef="let element"> {{element.user}} </td>
     </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Reviewed </th>
+      <td mat-cell *matCellDef="let element"> 
+        <span style="display: none;">{{element.review.status}}</span>
+        <div *ngIf="element.review.status=='APPROVED'">
+          <mat-icon class="source-link" style="color: green;" 
+          matTooltip="Approved by {{element.review.reviewer}} on {{element.review.submitted | date:'mediumDate' }}">verified</mat-icon>
+        </div>
+        <div *ngIf="element.review.status=='CHANGES_REQUESTED'">
+          <mat-icon class="source-link" style="color: red;"
+          matTooltip="Requested by {{element.review.reviewer}} on {{element.review.submitted | date:'mediumDate' }}">report_problem</mat-icon>
+        </div>
+        <div *ngIf="element.review.status=='UNREVIEWED'">
+          <mat-icon class="source-link" style="color: gainsboro;">visibility</mat-icon>
+        </div>
+
+      </td>
+    </ng-container>
   
     <ng-container matColumnDef="updated">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Updated </th>

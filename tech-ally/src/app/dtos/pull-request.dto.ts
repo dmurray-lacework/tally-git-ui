@@ -9,6 +9,7 @@ export interface PullRequestDto {
     comments: number;
     head: HeadRequestDto;
     user: UserRequestDto;
+    reviews: ReviewDto[];
 }
 
 export interface HeadRequestDto {
@@ -21,4 +22,11 @@ export interface RepoRequestDto {
 
 export interface UserRequestDto {
     login:string
+}
+
+export interface ReviewDto {
+    state: string;
+    user: UserRequestDto;
+    submitted_at: string;
+    body: string;
 }

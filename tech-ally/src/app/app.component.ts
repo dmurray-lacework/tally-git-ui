@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IssueDto } from './dtos/issue.dto';
 import { Issue } from './models/issue';
 import { Project } from './models/project';
+import { LocalStorageService } from './services/local-storage.service';
 import { ProjectService } from './services/project.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AppComponent {
   issues: Issue[] = [];
   projectResponse!: Project;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private localStorage: LocalStorageService) { }
 
   async ngOnInit(){
     await this.fetchIssues()
@@ -28,4 +29,10 @@ export class AppComponent {
     this.issues = Issue.fromDtoList(issueDto)
     this.issueCount = this.issues.length
   }
+
+    // Clear cache and refresh the page
+    hardReload() {
+      this.localStorage.flush();
+      window.location.reload();
+    }
 }

@@ -129,6 +129,21 @@ body {
   width: 100% !important;
   text-align: right !important;
 }
+
+.refresh-link-ctr {
+  width: 100% !important;
+}
+
+.refresh-link {
+  color: white;
+  float: right;
+}
+
+.refresh-link:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
 .source-link {
   color:#3f3e55
 }

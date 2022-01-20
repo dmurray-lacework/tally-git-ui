@@ -43,6 +43,8 @@ export class ProjectsComponent implements OnInit {
         repo.iconLink = "../../../assets/images/gopher-thinking.png"
       } else if (repo.language == "Ruby") {
         repo.iconLink = "../../../assets/images/ruby-icon-min.png"
+      } else if (repo.name.includes("action")) {
+        repo.iconLink = "../../../assets/images/github-action.png"
       } else {
       repo.iconLink = "../../../assets/images/terminal-shell.png"
     }
